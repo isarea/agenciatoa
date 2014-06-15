@@ -1,0 +1,7 @@
+<DisponibilidadDestinoPeticion>
+    <ideses>{{ideses}}</ideses> 
+    <codtou>HTT</codtou> 
+    <tiparb>ZHT</tiparb>
+    <tipzge>{{tipzge}}</tipzge>
+    <zgesup>{{zgesup}}</zgesup>
+</DisponibilidadDestinoPeticion>

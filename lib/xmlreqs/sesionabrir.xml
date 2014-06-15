@@ -1,0 +1,6 @@
+<SesionAbrirPeticion>
+  <codsys>XML</codsys>
+  <codage>{{codage}}</codage>
+  <idtusu>{{idtusu}}</idtusu>
+  <pasusu>{{pasusu}}</pasusu>
+</SesionAbrirPeticion>

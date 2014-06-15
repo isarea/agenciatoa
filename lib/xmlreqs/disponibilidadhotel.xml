@@ -1,0 +1,16 @@
+<DisponibilidadHotelPeticion>
+  <ideses>{{ideses}}</ideses>
+  <codtou>HTT</codtou>
+  <fecini>{{fecini}}</fecini>
+  <fecfin>{{fecfin}}</fecfin>
+
+  <codzge>{{codzge}}</codzge>
+  <distri id='1'>
+    <numuni>{{numuni}}</numuni>
+    <numadl>{{numadl}}</numadl>
+    <numnin>{{numnin}}</numnin>
+  </distri>
+  <chkscm>N</chkscm>
+  <traduc>codsmo#</traduc>
+  <traduc>codral</traduc>
+</DisponibilidadHotelPeticion>

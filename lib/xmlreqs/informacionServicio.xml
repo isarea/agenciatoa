@@ -1,0 +1,5 @@
+<InformacionServicioPeticion>
+    <ideses>{{ideses}}</ideses> 
+    <codtou>HTT</codtou> 
+    <codser>{{codser}}</codser> 
+</InformacionServicioPeticion>

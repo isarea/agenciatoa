@@ -1,12 +1,10 @@
 <?php
 
-  session_start();
-  
   require 'vendor/autoload.php';
   include("./lib/toaclient.php");
 
   $toaclient = new TOAClient();
-  $ideses = $_SESSION['ideses'];
+  $ideses = $_GET['ideses'];
   $codser = $_GET['codser'];
 
   $info = $toaclient->informacionServicio($ideses, $codser);

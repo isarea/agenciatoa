@@ -21,21 +21,20 @@
     <script src="public/js/jssor.utils.js"></script>
     <script src="public/js/jssor.slider.js"></script>
     <script>
-	    jssor_slider1_starter = function (containerId) {
-	      var options = {
-	        $AutoPlay: true,
-	        $SlideDuration: 800,
-	        $ThumbnailNavigatorOptions: {
-            $Class: $JssorThumbnailNavigator$,
+      jssor_slider1_starter = function (containerId) {
+        var options = {
+          $AutoPlay: true,
+          $DragOrientation: 3,
+          $SlideDuration: 800,
+          $ArrowNavigatorOptions: {
+            $Class: $JssorArrowNavigator$,
             $ChanceToShow: 2,
-            $ActionMode: 1,
-            $SpacingX: 8,
-            $DisplayPieces: 10,
-            $ParkingPosition: 360
-	        }
-	      };
-	      var jssor_slider1 = new $JssorSlider$(containerId, options);
-	    };
+            $AutoCenter: 2,
+            $Steps: 1
+          }
+        };
+        var jssor_slider1 = new $JssorSlider$(containerId, options);
+      };
     </script>
 		<!--[if lt IE 8]>
 		<div style=' clear: both; text-align:center; position: relative;'>
@@ -100,79 +99,45 @@
 				</div>
 				<div class="grid_6 prefix_1">
 					<h3>Galería</h3>
-
-
-			    <div id="slider1_container" style="position: relative; top: 0px; left: 0px; width: 500px;
-			        height: 356px; background: #24262e; overflow: hidden;">
-
-		        <!-- Loading Screen -->
-		        <div u="loading" style="position: absolute; top: 0px; left: 0px;">
-	            <div style="filter: alpha(opacity=70); opacity:0.7; position: absolute; display: block;
-	                background-color: #000000; top: 0px; left: 0px;width: 100%;height:100%;">
-	            </div>
-	            <div style="position: absolute; display: block; background: url(public/images/loading.gif) no-repeat center center;
-	                top: 0px; left: 0px;width: 100%;height:100%;">
-	            </div>
-		        </div>
-
-		        <!-- Slides Container -->
-		        <div u="slides" style="cursor: move; position: absolute; left: 0px; top: 0px; width: 500px; height: 256px; overflow: hidden;">
+          <!-- Jssor Slider Begin -->
+          <!-- You can move inline styles to css file or css block. --> 
+          <div id="slider1_container" style="position: relative; width: 500px;
+              height: 300px; overflow: hidden;">
+       
+            <!-- Slides Container --> 
+            <div u="slides" style="cursor: move; position: absolute; left: 0px; top: 0px; width: 500px; height: 300px; overflow: hidden;">
 							{% for desser in info.servic.desser %}
 								{% for descdo in desser.descdo %}
-		            <div>
-		                <img u="image" src="{{descdo.urlimg}}" />
-		                <img u="thumb" src="{{descdo.urlimg}}" />
-		            </div>
+		            <div> <img u="image" src="{{descdo.urlimg}}" /> </div>
 								{% endfor %}
 							{% endfor %}
 				    </div>
 
-        <!-- Thumbnail Navigator Skin Begin -->
-        <div u="thumbnavigator" class="jssort01" style="position: absolute; width: 800px; height: 100px; left:0px; bottom: 0px;">
-        
-            <!-- Thumbnail Item Skin Begin -->
+            <!-- Arrow Navigator Skin Begin -->
             <style>
-                .jssort01 .w
+                .jssora01l, .jssora01r, .jssora01ldn, .jssora01rdn
                 {
-                    position: absolute;
-                    top: 0px;
-                    left: 0px;
-                    width: 100%;
-                    height: 100%;
+                  position: absolute;
+                  cursor: pointer;
+                  display: block;
+                    background: url(public/images/a01.png) no-repeat;
+                    overflow:hidden;
                 }
-                .jssort01 .c {
-                    position: absolute;
-                    top: 0px;
-                    left: 0px;
-                    width: 68px;
-                    height: 68px;
-                    border: #000 2px solid;
-                }
-                .jssort01 .p:hover .c, .jssort01 .pav:hover .c, .jssort01 .pav .c {
-                    background: url(public/images/t01.png) center center;
-                    border-width: 0px;
-                    top: 2px;
-                    left: 2px;
-                    width: 68px;
-                    height: 68px;
-                }
-                .jssort01 .p:hover .c, .jssort01 .pav:hover .c {
-                    top: 0px;
-                    left: 0px;
-                    width: 70px;
-                    height: 70px;
-                    border: #fff 1px solid;
-                }
+                .jssora01l { background-position: -8px -38px; }
+                .jssora01r { background-position: -68px -38px; }
+                .jssora01l:hover { background-position: -128px -38px; }
+                .jssora01r:hover { background-position: -188px -38px; }
+                .jssora01ldn { background-position: -8px -38px; }
+                .jssora01rdn { background-position: -68px -38px; }
             </style>
-            <div u="slides" style="cursor: move;">
-                <div u="prototype" class="p" style="position: absolute; width: 72px; height: 72px; top: 0; left: 0;">
-                    <div class=w><thumbnailtemplate style="width: 100%; height: 100%; border: none;position:absolute; top: 0; left: 0;"></thumbnailtemplate></div>
-                    <div class=c>
-                    </div>
-                </div>
-            </div>
-            <!-- Thumbnail Item Skin End -->
-					</div>
+            <!-- Arrow Left -->
+            <span u="arrowleft" class="jssora01l" style="width: 45px; height: 45px; top: 123px; left: 8px;">
+            </span>
+            <!-- Arrow Right -->
+            <span u="arrowright" class="jssora01r" style="width: 45px; height: 45px; top: 123px; right: 8px">
+            </span>
+            <!-- Arrow Navigator Skin End -->
+          </div>
 				</div>
 			</div>
 		</div>

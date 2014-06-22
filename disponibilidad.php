@@ -1,11 +1,14 @@
 <?php
 
+  session_start();
+
   require 'vendor/autoload.php';
   include("./lib/toaclient.php");
 
   $toaclient = new TOAClient();
   $ideses = $toaclient->sesionAbrir();
-
+  $_SESSION['ideses'] = $ideses;
+  
   $fecini = date_create($_POST['fecini'])->format('d/m/Y');
   $fecfin = date_create($_POST['fecfin'])->format('d/m/Y');
 

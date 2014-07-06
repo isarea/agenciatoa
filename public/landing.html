@@ -159,8 +159,9 @@
 				<div class="grid_6">
 					<h3>Booking Form</h3>
 					<form id="bookingForm" method="post" action="disponibilidad.php">
+						<div class="clear"></div>
 						<strong>Destino</strong>
-						<select name="codzge" class="tmSelect auto" data-class="tmSelect tmSelect2" data-constraints="">
+						<select name="codzge" class="tmSelect" data-class="tmSelect2">
 							{% for destino in destinos %}
 							<option value="{{destino.codzge}}">{{destino.nomzge}}</option>
 							{% endfor %}

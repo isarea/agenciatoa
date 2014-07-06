@@ -7,6 +7,8 @@
 		<link rel="icon" href="public/images/favicon.ico">
 		<link rel="shortcut icon" href="public/images/favicon.ico" />
 		<link rel="stylesheet" href="public/css/style.css">
+		<link rel="stylesheet" href="public/css/footable.core.css" type="text/css" />
+		<link rel="stylesheet" href="public/css/footable.metro.css" type="text/css" />
 		<script src="public/js/jquery.js"></script>
 		<script src="public/js/jquery-migrate-1.2.1.js"></script>
 		<script src="public/js/script.js"></script>
@@ -15,6 +17,14 @@
 		<script src="public/js/jquery.equalheights.js"></script>
 		<script src="public/js/jquery.mobilemenu.js"></script>
 		<script src="public/js/jquery.easing.1.3.js"></script>
+		<script src="public/js/footable.js"></script>
+		<script src="public/js/footable.sort.js"></script>
+		<script src="public/js/footable.paginate.js"></script>
+	  <script type="text/javascript">
+	    $(function() {
+	      $('table').footable();
+	    });
+	  </script>		
 		<script>
 		$(document).ready(function(){
 			$().UItoTop({ easingType: 'easeOutQuart' });
@@ -61,33 +71,74 @@
 <!--==============================Content=================================-->
 		<div class="content"><div class="ic">More Website Templates @ TemplateMonster.com - February 10, 2014!</div>
 			<div class="container_12">
-				<div class="grid_8">
+				<div class="grid_12">
 					<h3>Resultados {{fechas.fecini}} a {{fechas.fecfin}}</h3>
 					{% for hotel in hoteles %}
+					<div class="text1 col1 block2">
+						<a href="fichahotel.php?ideses={{sesion}}&codser={{hotel.info.servic.codser}}">
+							{{hotel.info.servic.nomser}} ({{hotel.info.servic.codsca}})
+						</a>
+					</div>
+					{{hotel.info.servic.serinf.dir|title}} ({{hotel.info.servic.serinf.loc|title}})<br/>
+					<a href="{{hotel.info.servic.serinf.www}}">{{hotel.info.servic.serinf.www}}</a><br>
 					<div class="block2">
 						<a href="fichahotel.php?ideses={{sesion}}&codser={{hotel.info.servic.codser}}">
 							<img src="{{hotel.img|default('http://www.krock1057.ca/files/285430908image_not_available.jpg')}}" alt="" class="img_inner fleft" style="width:300px">
 						</a>
 						<div class="extra_wrapper">
-							<div class="text1 col1">{{hotel.info.servic.nomser}} ({{hotel.info.servic.codsca}})<br/>
-							{{hotel.disp.infhab|length}} Habitaciones disponibles
-							</div>
-							<b>{{hotel.info.servic.serinf.loc|title}}</b><br/>
-							{{hotel.info.servic.serinf.dir|title}}<br/>
-							<a href="{{hotel.info.servic.serinf.www}}">{{hotel.info.servic.serinf.www}}</a><br/>
-							<a href="fichahotel.php?ideses={{sesion}}&codser={{hotel.info.servic.codser}}" class="link1">Más información</a>
+							<table class ="footable table metro-red" data-page-size="4">
+							<thead>
+								<tr>
+									<th>Tipo</th>
+									<th>Condiciones</th>
+									<th data-type="numeric">Max.</th>
+									<th data-type="numeric" data-sort-initial="true">Precio</th>
+									<th data-sort-ignore="true">Disponible</th>
+								</tr>
+							</thead>
+							<tbody>
+							{% for hab in hotel.habs %}
+								<tr>
+								 <td>{{hab.codsmo}} {{hab.codcha}}</td>
+								 <td>{{hab.codral}}</td>
+								 <td>{{hab.adlmax}}</td>
+								 <td>{{hab.impnoc}} €</td>
+								 <td><a href="#" class="link2">Reservar</a></td>
+								</tr>
+							{% endfor %}
+							</tbody>
+							<tfoot class="hide-if-no-paging">
+								<tr>
+									<td colspan="5">
+										<div class="pagination pagination-centered"></div>
+									</td>
+								</tr>
+							</tfoot>
+							</table>
 						</div>
 					</div>
-					{% endfor %}
+					<hr>
+					{% endfor %}		
 				</div>
+				<!--
 				<div class="grid_3 prefix_1">
-					<h5>Destinos disponibles</h5>
-					<ul class="list">
-						{% for localidad in localidades %}
-						<li><a href="#">{{localidad|title}}</a></li>
+					<h5>Habitaciones disponibles</h5>
+					{% for hotel in hoteles %}
+					<table class ="footable table">
+						<thead>
+							<tr>
+								<th>Tipo</th>
+								<th>Condiciones</th>
+								<th>Max.</th>
+								<th>Precio</th>
+								<th>Reserva</th>
+							</tr>
+						</thead>
+			
 						{% endfor %}
-					</ul>
+					</table>
 				</div>
+				-->
 			</div>
 		</div>
 <!--==============================footer=================================-->

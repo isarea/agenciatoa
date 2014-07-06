@@ -16,7 +16,7 @@
   );
 
   $hoteles = array();
-  $localidades = array();
+  $habitaciones = array();
   $fechas = array (
     "fecini" => $fecini,
     "fecfin" => $fecfin
@@ -24,12 +24,12 @@
 
   foreach ($disponibilidad->infhot as $elem) {
     $info = $toaclient->informacionServicio($disponibilidad->ideses, $elem->codser);
-    array_push($localidades, $info->servic->serinf->loc);
     
     $hotel = array();
     $hotel["disp"] = $elem;
     $hotel["info"] = $info;
     $hotel["img"] = $info->xpath("/InformacionServicioRespuesta/servic/desser[@id='2']/descdo/urlimg")[0];
+    $hotel["habs"] = $elem->infhab;
     array_push($hoteles, $hotel);
   }
 
@@ -38,7 +38,6 @@
 
   $html = $twig->render('disponibilidad.html', array(
     "hoteles" => $hoteles,
-    "localidades" => array_unique($localidades),
     "fechas" => array ("fecini" => $fecini, "fecfin" => $fecfin),
     "sesion" => urlencode($ideses)
   ));

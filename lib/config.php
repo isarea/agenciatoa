@@ -1,6 +1,6 @@
 <?php
   $servic = 'http://xml.development.hotetec.com/publisher/xmlservice.srv';
-  $codage = "COD";              // Código de agencia
-  $idtusu = "DESARROLLADORES";  // Usuario
-  $pasusu = "DESARROLLADORESI"; // Clave
+  $codage = "WEBAVT";  // Código de agencia
+  $idtusu = "WEBAVT";  // Usuario
+  $pasusu = "WEBAVTI"; // Clave
 ?>

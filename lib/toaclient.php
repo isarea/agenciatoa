@@ -1,6 +1,5 @@
 <?php 
 	require 'vendor/autoload.php';
-	include("lib/config.php");
 
 	class TOAException extends Exception {
 	  public function __construct($message, $code=0, Exception $previous = null) {
@@ -25,9 +24,7 @@
 	  }
 
 	  public function sesionAbrir() {
-			$codage = "COD";              // Código de agencia
-			$idtusu = "DESARROLLADORES";  // Usuario
-			$pasusu = "DESARROLLADORESI"; // Clave
+			include("./lib/config.php");
 
 			$template_loader = new Twig_Loader_Filesystem('lib/xmlreqs');
 			$twig = new Twig_Environment($template_loader);

@@ -50,6 +50,13 @@
 			$().UItoTop({ easingType: 'easeOutQuart' });
 			});
 		</script>
+
+		<script>
+			var fecIni = new Date();
+			var fecFin = new Date();
+			fecFin.setMonth(fecIni.getMonth() + 1);
+		</script>
+
 		<!--[if lt IE 8]>
 		<div style=' clear: both; text-align:center; position: relative;'>
 			<a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
@@ -70,10 +77,11 @@
 					<div class="menu_block">
 						<nav class="horizontal-nav full-width horizontalNav-notprocessed">
 							<ul class="sf-menu">
-								<li class="current"><a href="index.php">Reservas</a></li>
-								<li><a href="public/index-1.html">Ofertas especiales</a></li>
-								<li><a href="public/index-3.html">Blog</a></li>
-								<li><a href="public/index-4.html">Contacta</a></li>
+								<li class="current"><a href="index.php">Inicio</a></li>
+								<li><a href="#">TravelOpenApps</a></li>
+								<li><a href="#">Código Fuente</a></li>
+								<li><a href="#">Access Service Api</a></li>
+								<li><a href="#">Contacta</a></li>
 							</ul>
 						</nav>
 						<div class="clear"></div>
@@ -92,15 +100,34 @@
 			<div id="camera_wrap" class="">
 				<div data-src="public/images/slide.jpg">
 					<div class="caption fadeIn">
-						<h2>LONDON</h2>
+						<h2>Agencia TravelOpenApps</h2>
 						<div class="price">
-							FROM
-							<span>$1000</span>
+							App tutorial para de demostración sobre
+							<span>Access Service API</span>
 						</div>
-						<a href="#">LEARN MORE</a>
+						<a href="#" target="_blank">¿Qué es Access Service API?</a>
 					</div>
 				</div>
-				<div data-src="public/images/slide1.jpg">
+				<div data-src="public/images/slide.jpg">
+					<div class="caption fadeIn">
+						<h2>Show me the code!</h2>
+						<div class="price">
+							El código fuente está disponible en nuestra
+							<span>Forja en GitHub</span>
+						</div>
+						<a href="#" target="_blank">A ver es código</a>
+					</div>
+				</div>
+				<div data-src="public/images/slide.jpg">
+					<div class="caption fadeIn">
+						<h2>¡Explora!</h2>
+						<div class="price">
+							Utiliza el buscador para consultar la disponibilidad hotelera.
+						</div>
+						<a href="#" target="_blank">Quiero saber más</a>
+					</div>
+				</div>
+				<!--<div data-src="public/images/slide1.jpg">
 					<div class="caption fadeIn">
 						<h2>Maldives</h2>
 						<div class="price">
@@ -119,7 +146,7 @@
 						</div>
 						<a href="#">LEARN MORE</a>
 					</div>
-				</div>
+				</div>-->
 			</div>
 		</div>
 <!--==============================Content=================================-->
@@ -129,9 +156,14 @@
 					<div class="banner">
 						<img src="public/images/ban_img1.jpg" alt="">
 						<div class="label">
-							<div class="title">Barcelona</div>
-							<div class="price">FROM<span>$ 1000</span></div>
-							<a href="#">LEARN MORE</a>
+							<div class="title">Castellón</div>
+							<div class="price">Desde<span>60 €</span></div>
+							<a href="javascript:;" onclick="
+								document.getElementById('codzge').value='{{destinos[0].codzge}}';
+								document.getElementById('fecini').value=String(fecIni.getMonth()+1)+'/'+String(fecIni.getDay())+'/'+String(fecIni.getFullYear());
+								document.getElementById('fecfin').value=String(fecFin.getMonth()+1)+'/'+String(fecFin.getDay())+'/'+String(fecFin.getFullYear());
+								document.getElementById('bookingForm').submit();
+							">Consultar disponibilidad</a>
 						</div>
 					</div>
 				</div>
@@ -139,9 +171,14 @@
 					<div class="banner">
 						<img src="public/images/ban_img2.jpg" alt="">
 						<div class="label">
-							<div class="title">GOA</div>
-							<div class="price">FROM<span>$ 1.500</span></div>
-							<a href="#">LEARN MORE</a>
+							<div class="title">Alicante</div>
+							<div class="price">Desde<span>40 €</span></div>
+							<a href="javascript:;" onclick="
+								document.getElementById('codzge').value='{{destinos[1].codzge}}';
+								document.getElementById('fecini').value=String(fecIni.getMonth()+1)+'/'+String(fecIni.getDay())+'/'+String(fecIni.getFullYear());
+								document.getElementById('fecfin').value=String(fecFin.getMonth()+1)+'/'+String(fecFin.getDay())+'/'+String(fecFin.getFullYear());
+								document.getElementById('bookingForm').submit();
+							">Consultar disponibilidad</a>
 						</div>
 					</div>
 				</div>
@@ -149,19 +186,24 @@
 					<div class="banner">
 						<img src="public/images/ban_img3.jpg" alt="">
 						<div class="label">
-							<div class="title">PARIS</div>
-							<div class="price">FROM<span>$ 1.600</span></div>
-							<a href="#">LEARN MORE</a>
+							<div class="title">Valencia</div>
+							<div class="price">Desde<span>60 €</span></div>
+							<a href="javascript:;" onclick="
+								document.getElementById('codzge').value='{{destinos[2].codzge}}';
+								document.getElementById('fecini').value=String(fecIni.getMonth()+1)+'/'+String(fecIni.getDay())+'/'+String(fecIni.getFullYear());
+								document.getElementById('fecfin').value=String(fecFin.getMonth()+1)+'/'+String(fecFin.getDay())+'/'+String(fecFin.getFullYear());
+								document.getElementById('bookingForm').submit();
+							">Consultar disponibilidad</a>
 						</div>
 					</div>
 				</div>
 				<div class="clear"></div>
 				<div class="grid_6">
-					<h3>Booking Form</h3>
+					<h3>Consulta la disponibilidad de habitaciones</h3>
 					<form id="bookingForm" method="post" action="disponibilidad.php">
 						<div class="clear"></div>
 						<strong>Destino</strong>
-						<select name="codzge" class="tmSelect" data-class="tmSelect2">
+						<select id="codzge" name="codzge" class="tmSelect" data-class="tmSelect2">
 							{% for destino in destinos %}
 							<option value="{{destino.codzge}}">{{destino.nomzge}}</option>
 							{% endfor %}
@@ -185,12 +227,12 @@
 						<div class="clear"></div>
 						<strong>Entrada</strong>
 						<label class="tmDatepicker">
-							<input type="text" name="fecini" data-constraints="@NotEmpty @Required @Date">
+							<input id="fecini" type="text" name="fecini" data-constraints="@NotEmpty @Required @Date">
 						</label>
 						<div class="clear"></div>
 						<strong>Salida</strong>
 						<label class="tmDatepicker">
-							<input type="text" name="fecfin" data-constraints="@NotEmpty @Required @Date">
+							<input id="fecfin" type="text" name="fecfin" data-constraints="@NotEmpty @Required @Date">
 						</label>
 						<!--<div class="clear"></div>
 						<div class="tmRadio">
@@ -233,22 +275,22 @@
 						<!--<div class="tmTextarea">
 							<textarea name="Message" placeHolder="Message" data-constraints='@NotEmpty @Required @Length(min=20,max=999999)'></textarea>
 						</div>-->
-						<a href="javascript:;" onclick="document.getElementById('bookingForm').submit();" class="btn" data-type="submit">Submit</a>
+						<a href="javascript:;" onclick="document.getElementById('bookingForm').submit();" class="btn" data-type="submit">Consultar</a>
 						
 					</form>
 				</div>
 				<div class="grid_5 prefix_1">
-					<h3>Welcome</h3>
+
+					<h3>Acerca de Access Service API</h3>
 					<img src="public/images/page1_img1.jpg" alt="" class="img_inner fleft">
 					<div class="extra_wrapper">
-						<p>Lorem ipsum dolor sit ere amet, consectetur ipiscin.</p>
-						In mollis erat mattis neque facilisis, sit ametiol
+						<p>En Travel Open Apps proveemos de un API para <b>consultar y operar con toda nuestra oferta turística</b>. Podrás consultar la disponiblidad de habitaciones por fechas, destino … e incluso realizar reservas reales <i>(solo para usuarios registrados)</i>.</p>
 					</div>
 					<div class="clear cl1"></div>
-					<p>Find the detailed description of this <span class="col1"><a href="http://blog.templatemonster.com/free-website-templates/" rel="dofollow">freebie</a></span> at TemplateMonster blog.</p>
-					<p><span class="col1"><a href="http://www.templatemonster.com/category/travel-website-templates/" rel="nofollow">Travel Website Templates</a></span> category offers you a variety of designs that are perfect for travel sphere of business.</p>
-					Proin pharetra luctus diam, a scelerisque eros convallis
-					<h4>Clients’ Quotes</h4>
+					<p>Este site es una <i>app</i> de ejemplo sobre Access Service API. Conoce más sobre Access Service API: tienes a tu disposición una <span class="col1"><a href="#" rel="dofollow">completa documentación</a></span>, una <span class="col1"><a href="#" rel="dofollow">consola para realizar pruebas</a></span> y una <span class="col1"><a href="#" rel="dofollow">colección de Postman.</a></span></p>
+					<p>En nuestra forja en Github tienes disponible el <span class="col1"><a href="http://www.templatemonster.com/category/travel-website-templates/" rel="nofollow">código fuente de esta app</a></span> para que te sirva de inspiración.</p>
+
+					<!--<h4>Clients’ Quotes</h4>
 					<blockquote class="bq1">
 						<img src="public/images/page1_img2.jpg" alt="" class="img_inner noresize fleft">
 						<div class="extra_wrapper">
@@ -258,35 +300,35 @@
 								<a href="#" class="btn">More</a>
 							</div>
 						</div>
-					</blockquote>
+					</blockquote>-->
 				</div>
 				<div class="grid_12">
-					<h3 class="head1">Latest News</h3>
+					<h3 class="head1">Conoce mejor Access Service API</h3>
 				</div>
 				<div class="grid_4">
 					<div class="block1">
-						<time datetime="2014-01-01">10<span>Jan</span></time>
+						<time datetime="2014-01-01">Doc<span>API</span></time>
 						<div class="extra_wrapper">
-							<div class="text1 col1"><a href="#">Aliquam nibh</a></div>
-							Proin pharetra luctus diam, any scelerisque eros convallisumsan. Maecenas vehicula egestas
+							<div class="text1 col1"><a href="#">Documentación</a></div>
+							Una descripción completa de todas las funcionalidades de Access Service API
 						</div>
 					</div>
 				</div>
 				<div class="grid_4">
 					<div class="block1">
-						<time datetime="2014-01-01">21<span>Jan</span></time>
+						<time datetime="2014-01-01">API<span>shell</span></time>
 						<div class="extra_wrapper">
-							<div class="text1 col1"><a href="#">Etiam dui eros</a></div>
-							Any scelerisque eros vallisumsan. Maecenas vehicula egestas natis. Duis massa elit, auctor non
+							<div class="text1 col1"><a href="#">Consola de Pruebas</a></div>
+							Para que aprendas de forma rápida a usar Access Service API
 						</div>
 					</div>
 				</div>
 				<div class="grid_4">
 					<div class="block1">
-						<time datetime="2014-01-01">15<span>Feb</span></time>
+						<time datetime="2014-01-01">Open<span>source</span></time>
 						<div class="extra_wrapper">
-							<div class="text1 col1"><a href="#">uamnibh Edeto</a></div>
-							Ros convallisumsan. Maecenas vehicula egestas venenatis. Duis massa elit, auctor non
+							<div class="text1 col1"><a href="#">Show me the code!</a></div>
+							Descarga el código fuente de este site.
 						</div>
 					</div>
 				</div>
@@ -302,7 +344,7 @@
 						<a href="#" class="fa fa-google-plus"></a>
 					</div>
 					<div class="copy">
-						Your Trip (c) 2014 | <a href="#">Privacy Policy</a> | Website Template Designed by <a href="http://www.templatemonster.com/" rel="nofollow">TemplateMonster.com</a>
+						Travel Open Apps (c) 2014 | Website Template Your Trip by <a href="http://www.templatemonster.com/" rel="nofollow">TemplateMonster.com</a>
 					</div>
 				</div>
 			</div>

@@ -4,8 +4,8 @@
   include("./lib/toaclient.php");
 
   $toaclient = new TOAClient();
-  $ideses = $_GET['ideses'];
-  $codser = $_GET['codser'];
+  $ideses = $toaclient->check_plain($_GET['ideses']);
+  $codser = $toaclient->check_plain($_GET['codser']);
 
   $info = $toaclient->informacionServicio($ideses, $codser);
   //var_dump($info);

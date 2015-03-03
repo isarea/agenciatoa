@@ -6,13 +6,16 @@
   $toaclient = new TOAClient();
   $ideses = $toaclient->sesionAbrir();
 
-  $fecini = date_create($_POST['fecini'])->format('d/m/Y');
-  $fecfin = date_create($_POST['fecfin'])->format('d/m/Y');
+  $fecini = date_create($toaclient->check_plain($_POST['fecini']))->format('d/m/Y');
+  $fecfin = date_create($toaclient->check_plain($_POST['fecfin']))->format('d/m/Y');
 
   $disponibilidad = $toaclient->disponibilidadHotel($ideses, 
-    $fecini, $fecfin, // Fechas
-    $_POST['codzge'], // Destino
-    $_POST['numuni'], $_POST['numadl'], $_POST['numnin'] // Pasajeros
+    $fecini,
+    $fecfin, // Fechas
+    $toaclient->check_plain($_POST['codzge']), // Destino
+    $toaclient->check_plain($_POST['numuni']),
+    $toaclient->check_plain($_POST['numadl']),
+    $toaclient->check_plain($_POST['numnin']) // Pasajeros
   );
 
   $hoteles = array();
